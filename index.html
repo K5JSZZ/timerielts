@@ -23,24 +23,28 @@
 </iframe>
 
 <script>
+document.addEventListener("DOMContentLoaded", function() {
+
   var timeLeft = 60 * 30; // 30 menit
+  var timerElement = document.getElementById("timer");
 
   var timer = setInterval(function() {
     var m = Math.floor(timeLeft / 60);
     var s = timeLeft % 60;
 
-    document.getElementById("timer").innerHTML =
+    timerElement.innerHTML =
       "Sisa waktu: " + m + ":" + (s < 10 ? "0" : "") + s;
 
     timeLeft--;
 
     if (timeLeft < 0) {
       clearInterval(timer);
-      document.getElementById("timer").innerHTML = "Waktu habis!";
-
+      timerElement.innerHTML = "Waktu habis!";
       alert("Waktu habis! Silakan submit sekarang.");
     }
   }, 1000);
+
+});
 </script>
 
 </body>
