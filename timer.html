@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>IELTS Simulation</title>
+  <style>
+    body { font-family: Arial; text-align: center; }
+    #timer { font-size: 28px; color: red; margin: 20px; }
+  </style>
+</head>
+<body>
+
+<h2>IELTS Simulation Test</h2>
+<div id="timer">Loading timer...</div>
+
+<iframe src="https://tally.so/r/BzG525" width="100%" height="600"></iframe>
+
+<script>
+  var timeLeft = 60 * 30; // 30 menit
+
+  var timer = setInterval(function() {
+    var m = Math.floor(timeLeft / 60);
+    var s = timeLeft % 60;
+
+    document.getElementById("timer").innerHTML =
+      "Sisa waktu: " + m + ":" + (s < 10 ? "0" : "") + s;
+
+    timeLeft--;
+
+    if (timeLeft < 0) {
+      clearInterval(timer);
+      document.getElementById("timer").innerHTML = "Waktu habis!";
+
+      alert("Waktu habis! Silakan submit sekarang.");
+    }
+  }, 1000);
+</script>
+
+</body>
+</html>
